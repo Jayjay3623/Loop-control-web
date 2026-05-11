@@ -91,25 +91,17 @@ const steps = [
 
 const plans = [
   {
-    name: "Founder",
-    price: "$29",
-    note: "Early individual access",
-    perks: ["Android companion beta", "Chat command queue", "Battery and system diagnostics"],
-    featured: false
-  },
-  {
-    name: "Founder Pro",
-    price: "$79",
-    note: "For power users",
-    perks: ["Everything in Founder", "Visible Remote View", "Local model setup guidance"],
-    featured: true
-  },
-  {
-    name: "Founder Team",
-    price: "$199",
-    note: "Small labs and builders",
-    perks: ["Three founder seats", "Shared setup guidance", "Early roadmap feedback"],
-    featured: false
+    name: "Founder Edition",
+    price: "$4.99",
+    note: "Launching soon",
+    priceNote: "one-time",
+    perks: [
+      "Local-first AI features",
+      "Android companion access",
+      "PC remote task system",
+      "Early founder updates",
+      "Limited beta rollout"
+    ]
   }
 ];
 
@@ -222,9 +214,9 @@ function App() {
         <SectionHeading
           kicker="Founder pricing"
           title="Early access plans for the first people testing the loop."
-          copy="Payments are not connected yet. These founder tiers are placeholders for launch pricing while pre-ship interest is collected."
+          copy="Payments are not connected yet. Founder Edition pricing is a launch placeholder while pre-ship interest is collected."
         />
-        <div className="mx-auto mt-12 grid max-w-7xl gap-4 lg:grid-cols-3">
+        <div className="mx-auto mt-12 max-w-md">
           {plans.map((plan) => (
             <PricingCard key={plan.name} {...plan} />
           ))}
@@ -254,8 +246,8 @@ function App() {
       </section>
 
       <section id="cta" className="px-5 pb-24 pt-10 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl rounded-lg border border-white/10 bg-white/[.075] p-6 shadow-glass backdrop-blur-xl sm:p-10 lg:p-12">
-          <div className="grid items-start gap-8 lg:grid-cols-[.86fr_1fr]">
+        <div className="mx-auto max-w-6xl rounded-lg border border-white/10 bg-white/[.075] p-5 shadow-glass backdrop-blur-xl sm:p-8 lg:p-10">
+          <div className="grid items-start gap-7 lg:grid-cols-[.82fr_1fr] lg:gap-10">
             <div>
               <p className="text-sm font-semibold uppercase text-signal-green">Founder beta</p>
               <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
@@ -264,7 +256,7 @@ function App() {
               <p className="mt-4 max-w-2xl leading-7 text-slate-300">
                 Founder beta access is limited during initial rollout. Join for product updates, Android companion release notes, and early access timing.
               </p>
-              <div className="mt-6 grid gap-3 text-sm text-slate-300 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+              <div className="mt-6 grid max-w-md gap-2.5 text-sm text-slate-300">
                 <SignupDetail label="Email" />
                 <SignupDetail label="Username optional" />
                 <SignupDetail label="Platform/device" />
@@ -319,7 +311,7 @@ function Header() {
 
 function SignupDetail({ label }) {
   return (
-    <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-ink-950/45 px-3 py-2">
+    <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-ink-950/55 px-3.5 py-2.5">
       <Check className="h-4 w-4 shrink-0 text-signal-green" />
       <span>{label}</span>
     </div>
@@ -368,19 +360,26 @@ function TallySignup() {
   }, []);
 
   return (
-    <div className="rounded-lg border border-white/10 bg-ink-950/60 p-3 shadow-glass backdrop-blur-xl sm:p-4">
+    <div className="rounded-lg border border-white/10 bg-[#0b1220]/95 p-4 shadow-glass backdrop-blur-xl sm:p-5">
+      <div className="mb-4 flex items-center justify-between gap-3 border-b border-white/10 pb-3">
+        <p className="text-sm font-semibold text-white">Founder beta signup</p>
+        <span className="rounded-full border border-signal-green/25 bg-signal-green/10 px-3 py-1 text-xs font-semibold text-signal-green">
+          Limited rollout
+        </span>
+      </div>
       <iframe
         data-tally-src="https://tally.so/embed/eqKN5Q?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
         loading="lazy"
         width="100%"
-        height="214"
+        height="260"
         frameBorder="0"
         marginHeight="0"
         marginWidth="0"
         title="Join the Founder Beta -- Loop Control"
-        className="block w-full rounded-md bg-transparent"
+        style={{ colorScheme: "dark" }}
+        className="block min-h-[260px] w-full rounded-md bg-[#0b1220]"
       />
-      <p className="mt-3 min-h-6 text-sm text-slate-400" aria-live="polite">
+      <p className="mt-4 border-t border-white/10 pt-3 text-sm leading-6 text-slate-400" aria-live="polite">
         {submitted
           ? "Thanks. You are on the founder beta list. Watch your inbox for rollout details."
           : "No payment flow yet. Founder beta access is limited while the first rollout is tested."}
@@ -544,23 +543,18 @@ function StepCard({ icon: Icon, index, title, copy }) {
   );
 }
 
-function PricingCard({ name, price, note, perks, featured }) {
+function PricingCard({ name, price, note, priceNote, perks }) {
   return (
-    <article className={`rounded-lg border p-6 shadow-glass backdrop-blur-xl ${featured ? "border-signal-green/40 bg-signal-green/10" : "border-white/10 bg-white/[.055]"}`}>
+    <article className="rounded-lg border border-signal-green/35 bg-signal-green/10 p-6 shadow-glass backdrop-blur-xl">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h3 className="text-xl font-semibold text-white">{name}</h3>
           <p className="mt-2 text-sm text-slate-400">{note}</p>
         </div>
-        {featured && (
-          <span className="rounded-full border border-signal-green/30 bg-signal-green/12 px-3 py-1 text-xs font-semibold uppercase text-signal-green">
-            Popular
-          </span>
-        )}
       </div>
       <div className="mt-8 flex items-end gap-2">
         <span className="text-5xl font-semibold text-white">{price}</span>
-        <span className="pb-2 text-sm text-slate-400">target launch</span>
+        <span className="pb-2 text-sm text-slate-400">{priceNote}</span>
       </div>
       <ul className="mt-8 space-y-3">
         {perks.map((perk) => (
@@ -572,9 +566,9 @@ function PricingCard({ name, price, note, perks, featured }) {
       </ul>
       <a
         href="#cta"
-        className={`mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-5 font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-ink-950 ${featured ? "bg-signal-green text-ink-950 hover:bg-emerald-300 focus:ring-signal-green" : "border border-white/12 bg-white/8 text-white hover:bg-white/12 focus:ring-white/30"}`}
+        className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-signal-green px-5 font-semibold text-ink-950 transition hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-signal-green focus:ring-offset-2 focus:ring-offset-ink-950"
       >
-        Get Founder Access
+        Join Founder Beta
         <ArrowRight className="h-4 w-4" />
       </a>
     </article>
