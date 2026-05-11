@@ -1,0 +1,14 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#06080D"/>
+  <path d="M0 540C144 476 271 509 408 458C548 406 575 268 720 239C868 210 966 313 1200 250V630H0V540Z" fill="#0F1A1F"/>
+  <path d="M156 181C214 113 302 70 400 70C576 70 719 213 719 389C719 423 714 456 704 487" stroke="#26D6AA" stroke-width="18" stroke-linecap="round"/>
+  <path d="M148 107V260H301" stroke="#55C7FF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="585" y="118" width="430" height="310" rx="22" fill="#0B1116" stroke="rgba(255,255,255,.22)" stroke-width="2"/>
+  <rect x="622" y="161" width="154" height="24" rx="12" fill="#26D6AA"/>
+  <rect x="622" y="224" width="326" height="18" rx="9" fill="#27343B"/>
+  <rect x="622" y="268" width="281" height="18" rx="9" fill="#27343B"/>
+  <rect x="622" y="312" width="338" height="18" rx="9" fill="#27343B"/>
+  <circle cx="915" cy="175" r="44" fill="#FFBF69"/>
+  <text x="156" y="520" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="82" font-weight="700">Loop Control</text>
+  <text x="160" y="574" fill="#A8B5BD" font-family="Arial, sans-serif" font-size="32">Local-first Android to PC control</text>
+</svg>
